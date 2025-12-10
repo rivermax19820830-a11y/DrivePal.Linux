@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <Content Remove="Routes.razor" />
+    <Content Remove="wwwroot\js\layout.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,7 +35,6 @@
   <ItemGroup>
     <Folder Include="Pages\" />
     <Folder Include="Shared\" />
-    <Folder Include="wwwroot\js\" />
   </ItemGroup>
 
 </Project>

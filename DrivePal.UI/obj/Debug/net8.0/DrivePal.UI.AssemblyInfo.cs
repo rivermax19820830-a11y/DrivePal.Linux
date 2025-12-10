@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DrivePal.UI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+24c98c4d37a94fa3839481b24cc9df4eecc5dd76")]
 [assembly: System.Reflection.AssemblyProductAttribute("DrivePal.UI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DrivePal.UI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,57 +1,57 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\trae_projects\\xfceblazor\\",
+  "WorkspaceRootPath": "E:\\Works\\DrivePal.Linux\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D26D2E33-7E44-4E59-5ABB-0582F1ACFFFB}|DrivePal.UI\\DrivePal.UI.csproj|e:\\trae_projects\\xfceblazor\\drivepal.ui\\components\\layout\\navmenu.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{D26D2E33-7E44-4E59-5ABB-0582F1ACFFFB}|DrivePal.UI\\DrivePal.UI.csproj|solutionrelative:drivepal.ui\\components\\layout\\navmenu.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D26D2E33-7E44-4E59-5ABB-0582F1ACFFFB}|DrivePal.UI\\DrivePal.UI.csproj|e:\\trae_projects\\xfceblazor\\drivepal.ui\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D26D2E33-7E44-4E59-5ABB-0582F1ACFFFB}|DrivePal.UI\\DrivePal.UI.csproj|solutionrelative:drivepal.ui\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB34F29F-B796-319A-C4D7-D986929B8B88}|DrivePalApp\\DrivePalApp.csproj|e:\\trae_projects\\xfceblazor\\drivepalapp\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BB34F29F-B796-319A-C4D7-D986929B8B88}|DrivePalApp\\DrivePalApp.csproj|solutionrelative:drivepalapp\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB34F29F-B796-319A-C4D7-D986929B8B88}|DrivePalApp\\DrivePalApp.csproj|e:\\trae_projects\\xfceblazor\\drivepalapp\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BB34F29F-B796-319A-C4D7-D986929B8B88}|DrivePalApp\\DrivePalApp.csproj|solutionrelative:drivepalapp\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB34F29F-B796-319A-C4D7-D986929B8B88}|DrivePalApp\\DrivePalApp.csproj|e:\\trae_projects\\xfceblazor\\drivepalapp\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{BB34F29F-B796-319A-C4D7-D986929B8B88}|DrivePalApp\\DrivePalApp.csproj|e:\\works\\drivepal.linux\\drivepalapp\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{BB34F29F-B796-319A-C4D7-D986929B8B88}|DrivePalApp\\DrivePalApp.csproj|solutionrelative:drivepalapp\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D26D2E33-7E44-4E59-5ABB-0582F1ACFFFB}|DrivePal.UI\\DrivePal.UI.csproj|e:\\trae_projects\\xfceblazor\\drivepal.ui\\components\\layout\\mainlayout.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{D26D2E33-7E44-4E59-5ABB-0582F1ACFFFB}|DrivePal.UI\\DrivePal.UI.csproj|e:\\works\\drivepal.linux\\drivepal.ui\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D26D2E33-7E44-4E59-5ABB-0582F1ACFFFB}|DrivePal.UI\\DrivePal.UI.csproj|solutionrelative:drivepal.ui\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D26D2E33-7E44-4E59-5ABB-0582F1ACFFFB}|DrivePal.UI\\DrivePal.UI.csproj|e:\\works\\drivepal.linux\\drivepal.ui\\components\\layout\\navmenu.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{D26D2E33-7E44-4E59-5ABB-0582F1ACFFFB}|DrivePal.UI\\DrivePal.UI.csproj|solutionrelative:drivepal.ui\\components\\layout\\navmenu.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB34F29F-B796-319A-C4D7-D986929B8B88}|DrivePalApp\\DrivePalApp.csproj|e:\\works\\drivepal.linux\\drivepalapp\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BB34F29F-B796-319A-C4D7-D986929B8B88}|DrivePalApp\\DrivePalApp.csproj|solutionrelative:drivepalapp\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB34F29F-B796-319A-C4D7-D986929B8B88}|DrivePalApp\\DrivePalApp.csproj|e:\\works\\drivepal.linux\\drivepalapp\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BB34F29F-B796-319A-C4D7-D986929B8B88}|DrivePalApp\\DrivePalApp.csproj|solutionrelative:drivepalapp\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D26D2E33-7E44-4E59-5ABB-0582F1ACFFFB}|DrivePal.UI\\DrivePal.UI.csproj|e:\\works\\drivepal.linux\\drivepal.ui\\components\\layout\\mainlayout.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{D26D2E33-7E44-4E59-5ABB-0582F1ACFFFB}|DrivePal.UI\\DrivePal.UI.csproj|solutionrelative:drivepal.ui\\components\\layout\\mainlayout.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D26D2E33-7E44-4E59-5ABB-0582F1ACFFFB}|DrivePal.UI\\DrivePal.UI.csproj|e:\\trae_projects\\xfceblazor\\drivepal.ui\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{D26D2E33-7E44-4E59-5ABB-0582F1ACFFFB}|DrivePal.UI\\DrivePal.UI.csproj|e:\\works\\drivepal.linux\\drivepal.ui\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D26D2E33-7E44-4E59-5ABB-0582F1ACFFFB}|DrivePal.UI\\DrivePal.UI.csproj|solutionrelative:drivepal.ui\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB34F29F-B796-319A-C4D7-D986929B8B88}|DrivePalApp\\DrivePalApp.csproj|e:\\trae_projects\\xfceblazor\\drivepalapp\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{BB34F29F-B796-319A-C4D7-D986929B8B88}|DrivePalApp\\DrivePalApp.csproj|e:\\works\\drivepal.linux\\drivepalapp\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{BB34F29F-B796-319A-C4D7-D986929B8B88}|DrivePalApp\\DrivePalApp.csproj|solutionrelative:drivepalapp\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB34F29F-B796-319A-C4D7-D986929B8B88}|DrivePalApp\\DrivePalApp.csproj|e:\\trae_projects\\xfceblazor\\drivepalapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BB34F29F-B796-319A-C4D7-D986929B8B88}|DrivePalApp\\DrivePalApp.csproj|e:\\works\\drivepal.linux\\drivepalapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB34F29F-B796-319A-C4D7-D986929B8B88}|DrivePalApp\\DrivePalApp.csproj|solutionrelative:drivepalapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D26D2E33-7E44-4E59-5ABB-0582F1ACFFFB}|DrivePal.UI\\DrivePal.UI.csproj|e:\\trae_projects\\xfceblazor\\drivepal.ui\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{D26D2E33-7E44-4E59-5ABB-0582F1ACFFFB}|DrivePal.UI\\DrivePal.UI.csproj|e:\\works\\drivepal.linux\\drivepal.ui\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D26D2E33-7E44-4E59-5ABB-0582F1ACFFFB}|DrivePal.UI\\DrivePal.UI.csproj|solutionrelative:drivepal.ui\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB34F29F-B796-319A-C4D7-D986929B8B88}|DrivePalApp\\DrivePalApp.csproj|e:\\trae_projects\\xfceblazor\\drivepalapp\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "AbsoluteMoniker": "D:0:0:{BB34F29F-B796-319A-C4D7-D986929B8B88}|DrivePalApp\\DrivePalApp.csproj|e:\\works\\drivepal.linux\\drivepalapp\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
       "RelativeMoniker": "D:0:0:{BB34F29F-B796-319A-C4D7-D986929B8B88}|DrivePalApp\\DrivePalApp.csproj|solutionrelative:drivepalapp\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D26D2E33-7E44-4E59-5ABB-0582F1ACFFFB}|DrivePal.UI\\DrivePal.UI.csproj|e:\\trae_projects\\xfceblazor\\drivepal.ui\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{D26D2E33-7E44-4E59-5ABB-0582F1ACFFFB}|DrivePal.UI\\DrivePal.UI.csproj|e:\\works\\drivepal.linux\\drivepal.ui\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D26D2E33-7E44-4E59-5ABB-0582F1ACFFFB}|DrivePal.UI\\DrivePal.UI.csproj|solutionrelative:drivepal.ui\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB34F29F-B796-319A-C4D7-D986929B8B88}|DrivePalApp\\DrivePalApp.csproj|e:\\trae_projects\\xfceblazor\\drivepalapp\\drivepalapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{BB34F29F-B796-319A-C4D7-D986929B8B88}|DrivePalApp\\DrivePalApp.csproj|e:\\works\\drivepal.linux\\drivepalapp\\drivepalapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{BB34F29F-B796-319A-C4D7-D986929B8B88}|DrivePalApp\\DrivePalApp.csproj|solutionrelative:drivepalapp\\drivepalapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -106,26 +106,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "NavMenu.razor.css",
-              "DocumentMoniker": "E:\\trae_projects\\xfceblazor\\DrivePal.UI\\Components\\Layout\\NavMenu.razor.css",
+              "DocumentMoniker": "E:\\Works\\DrivePal.Linux\\DrivePal.UI\\Components\\Layout\\NavMenu.razor.css",
               "RelativeDocumentMoniker": "DrivePal.UI\\Components\\Layout\\NavMenu.razor.css",
-              "ToolTip": "E:\\trae_projects\\xfceblazor\\DrivePal.UI\\Components\\Layout\\NavMenu.razor.css",
+              "ToolTip": "E:\\Works\\DrivePal.Linux\\DrivePal.UI\\Components\\Layout\\NavMenu.razor.css",
               "RelativeToolTip": "DrivePal.UI\\Components\\Layout\\NavMenu.razor.css",
-              "ViewState": "AgIAAJMAAAAAAAAAAAAAAKwAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-12-10T01:36:30.788Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "index.html",
-              "DocumentMoniker": "E:\\trae_projects\\xfceblazor\\DrivePalApp\\wwwroot\\index.html",
+              "DocumentMoniker": "E:\\Works\\DrivePal.Linux\\DrivePalApp\\wwwroot\\index.html",
               "RelativeDocumentMoniker": "DrivePalApp\\wwwroot\\index.html",
-              "ToolTip": "E:\\trae_projects\\xfceblazor\\DrivePalApp\\wwwroot\\index.html",
+              "ToolTip": "E:\\Works\\DrivePal.Linux\\DrivePalApp\\wwwroot\\index.html",
               "RelativeToolTip": "DrivePalApp\\wwwroot\\index.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2025-12-10T01:33:00.724Z",
               "EditorCaption": ""
@@ -134,22 +134,21 @@
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "MainLayout.razor.css",
-              "DocumentMoniker": "E:\\trae_projects\\xfceblazor\\DrivePal.UI\\Components\\Layout\\MainLayout.razor.css",
+              "DocumentMoniker": "E:\\Works\\DrivePal.Linux\\DrivePal.UI\\Components\\Layout\\MainLayout.razor.css",
               "RelativeDocumentMoniker": "DrivePal.UI\\Components\\Layout\\MainLayout.razor.css",
-              "ToolTip": "E:\\trae_projects\\xfceblazor\\DrivePal.UI\\Components\\Layout\\MainLayout.razor.css",
+              "ToolTip": "E:\\Works\\DrivePal.Linux\\DrivePal.UI\\Components\\Layout\\MainLayout.razor.css",
               "RelativeToolTip": "DrivePal.UI\\Components\\Layout\\MainLayout.razor.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-12-10T00:45:58.085Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-10T00:45:58.085Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "NavMenu.razor",
-              "DocumentMoniker": "E:\\trae_projects\\xfceblazor\\DrivePal.UI\\Components\\Layout\\NavMenu.razor",
+              "DocumentMoniker": "E:\\Works\\DrivePal.Linux\\DrivePal.UI\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "DrivePal.UI\\Components\\Layout\\NavMenu.razor",
-              "ToolTip": "E:\\trae_projects\\xfceblazor\\DrivePal.UI\\Components\\Layout\\NavMenu.razor",
+              "ToolTip": "E:\\Works\\DrivePal.Linux\\DrivePal.UI\\Components\\Layout\\NavMenu.razor",
               "RelativeToolTip": "DrivePal.UI\\Components\\Layout\\NavMenu.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -160,9 +159,9 @@
               "$type": "Document",
               "DocumentIndex": 10,
               "Title": "README.md",
-              "DocumentMoniker": "E:\\trae_projects\\xfceblazor\\DrivePalApp\\README.md",
+              "DocumentMoniker": "E:\\Works\\DrivePal.Linux\\DrivePalApp\\README.md",
               "RelativeDocumentMoniker": "DrivePalApp\\README.md",
-              "ToolTip": "E:\\trae_projects\\xfceblazor\\DrivePalApp\\README.md",
+              "ToolTip": "E:\\Works\\DrivePal.Linux\\DrivePalApp\\README.md",
               "RelativeToolTip": "DrivePalApp\\README.md",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
@@ -172,9 +171,9 @@
               "$type": "Document",
               "DocumentIndex": 11,
               "Title": "_Imports.razor",
-              "DocumentMoniker": "E:\\trae_projects\\xfceblazor\\DrivePal.UI\\Components\\_Imports.razor",
+              "DocumentMoniker": "E:\\Works\\DrivePal.Linux\\DrivePal.UI\\Components\\_Imports.razor",
               "RelativeDocumentMoniker": "DrivePal.UI\\Components\\_Imports.razor",
-              "ToolTip": "E:\\trae_projects\\xfceblazor\\DrivePal.UI\\Components\\_Imports.razor",
+              "ToolTip": "E:\\Works\\DrivePal.Linux\\DrivePal.UI\\Components\\_Imports.razor",
               "RelativeToolTip": "DrivePal.UI\\Components\\_Imports.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -184,9 +183,9 @@
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "Routes.razor",
-              "DocumentMoniker": "E:\\trae_projects\\xfceblazor\\DrivePalApp\\Routes.razor",
+              "DocumentMoniker": "E:\\Works\\DrivePal.Linux\\DrivePalApp\\Routes.razor",
               "RelativeDocumentMoniker": "DrivePalApp\\Routes.razor",
-              "ToolTip": "E:\\trae_projects\\xfceblazor\\DrivePalApp\\Routes.razor",
+              "ToolTip": "E:\\Works\\DrivePal.Linux\\DrivePalApp\\Routes.razor",
               "RelativeToolTip": "DrivePalApp\\Routes.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -196,9 +195,9 @@
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "Program.cs",
-              "DocumentMoniker": "E:\\trae_projects\\xfceblazor\\DrivePalApp\\Program.cs",
+              "DocumentMoniker": "E:\\Works\\DrivePal.Linux\\DrivePalApp\\Program.cs",
               "RelativeDocumentMoniker": "DrivePalApp\\Program.cs",
-              "ToolTip": "E:\\trae_projects\\xfceblazor\\DrivePalApp\\Program.cs",
+              "ToolTip": "E:\\Works\\DrivePal.Linux\\DrivePalApp\\Program.cs",
               "RelativeToolTip": "DrivePalApp\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -206,50 +205,47 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "App.razor",
-              "DocumentMoniker": "E:\\trae_projects\\xfceblazor\\DrivePalApp\\App.razor",
+              "DocumentMoniker": "E:\\Works\\DrivePal.Linux\\DrivePalApp\\App.razor",
               "RelativeDocumentMoniker": "DrivePalApp\\App.razor",
-              "ToolTip": "E:\\trae_projects\\xfceblazor\\DrivePalApp\\App.razor",
+              "ToolTip": "E:\\Works\\DrivePal.Linux\\DrivePalApp\\App.razor",
               "RelativeToolTip": "DrivePalApp\\App.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-09T11:19:22.906Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-09T11:19:22.906Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "_Imports.razor",
-              "DocumentMoniker": "E:\\trae_projects\\xfceblazor\\DrivePalApp\\_Imports.razor",
+              "DocumentMoniker": "E:\\Works\\DrivePal.Linux\\DrivePalApp\\_Imports.razor",
               "RelativeDocumentMoniker": "DrivePalApp\\_Imports.razor",
-              "ToolTip": "E:\\trae_projects\\xfceblazor\\DrivePalApp\\_Imports.razor",
+              "ToolTip": "E:\\Works\\DrivePal.Linux\\DrivePalApp\\_Imports.razor",
               "RelativeToolTip": "DrivePalApp\\_Imports.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-09T11:21:29.82Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-09T11:21:29.82Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "MainLayout.razor",
-              "DocumentMoniker": "E:\\trae_projects\\xfceblazor\\DrivePal.UI\\Components\\Layout\\MainLayout.razor",
+              "DocumentMoniker": "E:\\Works\\DrivePal.Linux\\DrivePal.UI\\Components\\Layout\\MainLayout.razor",
               "RelativeDocumentMoniker": "DrivePal.UI\\Components\\Layout\\MainLayout.razor",
-              "ToolTip": "E:\\trae_projects\\xfceblazor\\DrivePal.UI\\Components\\Layout\\MainLayout.razor",
+              "ToolTip": "E:\\Works\\DrivePal.Linux\\DrivePal.UI\\Components\\Layout\\MainLayout.razor",
               "RelativeToolTip": "DrivePal.UI\\Components\\Layout\\MainLayout.razor",
               "ViewState": "AgIAAAYAAAAAAAAAAADwvxcAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-09T11:42:10.796Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-09T11:42:10.796Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "Home.razor",
-              "DocumentMoniker": "E:\\trae_projects\\xfceblazor\\DrivePal.UI\\Components\\Pages\\Home.razor",
+              "DocumentMoniker": "E:\\Works\\DrivePal.Linux\\DrivePal.UI\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "DrivePal.UI\\Components\\Pages\\Home.razor",
-              "ToolTip": "E:\\trae_projects\\xfceblazor\\DrivePal.UI\\Components\\Pages\\Home.razor",
+              "ToolTip": "E:\\Works\\DrivePal.Linux\\DrivePal.UI\\Components\\Pages\\Home.razor",
               "RelativeToolTip": "DrivePal.UI\\Components\\Pages\\Home.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -259,9 +255,9 @@
               "$type": "Document",
               "DocumentIndex": 12,
               "Title": "DrivePalApp.csproj",
-              "DocumentMoniker": "E:\\trae_projects\\xfceblazor\\DrivePalApp\\DrivePalApp.csproj",
+              "DocumentMoniker": "E:\\Works\\DrivePal.Linux\\DrivePalApp\\DrivePalApp.csproj",
               "RelativeDocumentMoniker": "DrivePalApp\\DrivePalApp.csproj",
-              "ToolTip": "E:\\trae_projects\\xfceblazor\\DrivePalApp\\DrivePalApp.csproj",
+              "ToolTip": "E:\\Works\\DrivePal.Linux\\DrivePalApp\\DrivePalApp.csproj",
               "RelativeToolTip": "DrivePalApp\\DrivePalApp.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",

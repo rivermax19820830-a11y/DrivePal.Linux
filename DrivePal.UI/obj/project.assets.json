@@ -4635,11 +4635,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\trae_projects\\xfceblazor\\DrivePal.UI\\DrivePal.UI.csproj",
+      "projectUniqueName": "E:\\Works\\DrivePal.Linux\\DrivePal.UI\\DrivePal.UI.csproj",
       "projectName": "DrivePal.UI",
-      "projectPath": "E:\\trae_projects\\xfceblazor\\DrivePal.UI\\DrivePal.UI.csproj",
+      "projectPath": "E:\\Works\\DrivePal.Linux\\DrivePal.UI\\DrivePal.UI.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "E:\\trae_projects\\xfceblazor\\DrivePal.UI\\obj\\",
+      "outputPath": "E:\\Works\\DrivePal.Linux\\DrivePal.UI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages",
@@ -4666,11 +4666,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "E:\\trae_projects\\xfceblazor\\DrivePal.Core\\DrivePal.Core.csproj": {
-              "projectPath": "E:\\trae_projects\\xfceblazor\\DrivePal.Core\\DrivePal.Core.csproj"
+            "E:\\Works\\DrivePal.Linux\\DrivePal.Core\\DrivePal.Core.csproj": {
+              "projectPath": "E:\\Works\\DrivePal.Linux\\DrivePal.Core\\DrivePal.Core.csproj"
             },
-            "E:\\trae_projects\\xfceblazor\\DrivePal.Infrastructure\\DrivePal.Infrastructure.csproj": {
-              "projectPath": "E:\\trae_projects\\xfceblazor\\DrivePal.Infrastructure\\DrivePal.Infrastructure.csproj"
+            "E:\\Works\\DrivePal.Linux\\DrivePal.Infrastructure\\DrivePal.Infrastructure.csproj": {
+              "projectPath": "E:\\Works\\DrivePal.Linux\\DrivePal.Infrastructure\\DrivePal.Infrastructure.csproj"
             }
           }
         }
