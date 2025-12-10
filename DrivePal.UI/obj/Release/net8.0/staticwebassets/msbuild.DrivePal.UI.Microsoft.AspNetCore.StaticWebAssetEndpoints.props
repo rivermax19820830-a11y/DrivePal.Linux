@@ -1,0 +1,40 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/DrivePal.UI/DrivePal.UI.bundle.scp.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DrivePal.UI.olxq8nboom.bundle.scp.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-ZF9vakdaE56mt5Q5RfH2sDkKqQxjtV3tt\u002Bw0yNN1388="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"6218"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022ZF9vakdaE56mt5Q5RfH2sDkKqQxjtV3tt\u002Bw0yNN1388=\u0022"},{"Name":"Last-Modified","Value":"Sun, 19 Oct 2025 04:42:27 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/DrivePal.UI/DrivePal.UI.olxq8nboom.bundle.scp.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DrivePal.UI.olxq8nboom.bundle.scp.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"olxq8nboom"},{"Name":"integrity","Value":"sha256-ZF9vakdaE56mt5Q5RfH2sDkKqQxjtV3tt\u002Bw0yNN1388="},{"Name":"label","Value":"_content/DrivePal.UI/DrivePal.UI.bundle.scp.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6218"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022ZF9vakdaE56mt5Q5RfH2sDkKqQxjtV3tt\u002Bw0yNN1388=\u0022"},{"Name":"Last-Modified","Value":"Sun, 19 Oct 2025 04:42:27 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/DrivePal.UI/images/Badge - 副本.gl3ptua1tf.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Badge - 副本.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"gl3ptua1tf"},{"Name":"integrity","Value":"sha256-jMw5RLPqKFLi4TWYCA3kC7GpSGPDEm8mJxf5GuILhEk="},{"Name":"label","Value":"_content/DrivePal.UI/images/Badge - \u526F\u672C.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"416889"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022jMw5RLPqKFLi4TWYCA3kC7GpSGPDEm8mJxf5GuILhEk=\u0022"},{"Name":"Last-Modified","Value":"Fri, 17 Oct 2025 09:29:47 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/DrivePal.UI/images/Badge - 副本.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Badge - 副本.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-jMw5RLPqKFLi4TWYCA3kC7GpSGPDEm8mJxf5GuILhEk="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"416889"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022jMw5RLPqKFLi4TWYCA3kC7GpSGPDEm8mJxf5GuILhEk=\u0022"},{"Name":"Last-Modified","Value":"Fri, 17 Oct 2025 09:29:47 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/DrivePal.UI/images/Badge.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Badge.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-\u002B23deYFPDAYCLt\u002Ba8pCSYRxwVkYXA/GIAcIuj5z1MYM="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"552562"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022\u002B23deYFPDAYCLt\u002Ba8pCSYRxwVkYXA/GIAcIuj5z1MYM=\u0022"},{"Name":"Last-Modified","Value":"Fri, 17 Oct 2025 09:01:37 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/DrivePal.UI/images/Badge.r06qphv18z.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Badge.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"r06qphv18z"},{"Name":"integrity","Value":"sha256-\u002B23deYFPDAYCLt\u002Ba8pCSYRxwVkYXA/GIAcIuj5z1MYM="},{"Name":"label","Value":"_content/DrivePal.UI/images/Badge.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"552562"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022\u002B23deYFPDAYCLt\u002Ba8pCSYRxwVkYXA/GIAcIuj5z1MYM=\u0022"},{"Name":"Last-Modified","Value":"Fri, 17 Oct 2025 09:01:37 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,66 @@
+﻿
+@inject NavigationManager Navigation
+
+
+<div class="sidebar @(IsCollapsed ? "collapsed" : "")">
+    <div>
+        <div class="sidebar-header">
+            <img src="/_content/DrivePal.UI/images/Badge.png" alt="LOGO" class="logo-image" />
+            <span class="mt-2 text-secondary"></span>
+        </div>
+        <nav class="main-nav">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/crane-industry/hoist">
+                        <i class="fa-solid fa-fw fa-calculator"></i>
+                        <span>变频器容量计算</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/general-vfd-selection">
+                        <i class="fas fa-globe-asia"></i>
+                        <span>通用变频器选型</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/maintain-drive-data">
+                        <i class="fas fa-fw fa-database"></i>
+                        <span>参数管理</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="sidebar-footer">
+        <button title="Toggle navigation" class="toggler-button" @onclick="OnToggle">
+            <i class="fa-solid fa-fw fa-bars"></i>
+        </button>
+    </div>
+</div> 
+
+
+@code {
+    [Parameter]
+    public bool IsCollapsed { get; set; }
+
+    [Parameter]
+    public EventCallback OnToggle { get; set; }
+
+
+
+    private bool isSubMenuOpen = false;
+
+    // 切换子菜单状态
+    private string GetSubMenuCssClass(bool forDiv = false)
+    {
+        // 逻辑简化，这里可以根据URL判断当前是否激活
+        // 这里暂时不处理，但保留了方法
+        return "";
+    }
+
+
+    protected override void OnInitialized()
+    {
+    }
+}

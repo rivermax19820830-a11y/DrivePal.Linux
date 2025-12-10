@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\Works\\DrivePal\\DrivePal.UI\\obj\\x64\\Debug\\net8.0\\scopedcss\\projectbundle\\DrivePal.UI.bundle.scp.css",
+      "PackagePath": "staticwebassets\\DrivePal.UI.n48tixrp6b.bundle.scp.css"
+    },
+    {
+      "Id": "E:\\Works\\DrivePal\\DrivePal.UI\\wwwroot\\images\\Badge.png",
+      "PackagePath": "staticwebassets\\images\\Badge.png"
+    },
+    {
+      "Id": "obj\\x64\\Debug\\net8.0\\staticwebassets\\msbuild.DrivePal.UI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\x64\\Debug\\net8.0\\staticwebassets\\msbuild.DrivePal.UI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\x64\\Debug\\net8.0\\staticwebassets\\msbuild.build.DrivePal.UI.props",
+      "PackagePath": "build\\DrivePal.UI.props"
+    },
+    {
+      "Id": "obj\\x64\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.DrivePal.UI.props",
+      "PackagePath": "buildMultiTargeting\\DrivePal.UI.props"
+    },
+    {
+      "Id": "obj\\x64\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.DrivePal.UI.props",
+      "PackagePath": "buildTransitive\\DrivePal.UI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,45 @@
+.page[b-hzlj5bcpug] {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.content[b-hzlj5bcpug] {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    position: relative; /* 为遮罩层提供定位上下文 */
+}
+
+.content-body[b-hzlj5bcpug] {
+    /*padding: 1.5rem;*/
+    flex-grow: 1;
+}
+
+/* --- 遮罩层样式 --- */
+.nav-backdrop[b-hzlj5bcpug] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1040; /* z-index需要比侧边栏低 */
+    opacity: 0;
+    pointer-events: none; /* 默认不可点击 */
+    transition: opacity 0.3s ease-in-out;
+}
+
+    /* 当遮罩层有 show 类时，使其可见并可点击 */
+    .nav-backdrop.show[b-hzlj5bcpug] {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+/* 在宽屏上，我们不需要遮罩层 */
+@media (min-width: 768.01px) {
+    .nav-backdrop[b-hzlj5bcpug] {
+        display: none;
+    }
+}

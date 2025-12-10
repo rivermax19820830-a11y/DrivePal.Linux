@@ -1,0 +1,196 @@
+/* --- 基础样式 --- */
+.sidebar[b-vgb7cixtlw] {
+    background-color: #212529;
+    color: white;
+    width: 250px;
+    flex-shrink: 0;
+    transition: width 0.3s ease-in-out;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1050;
+}
+/* Logo样式 - 带有动画效果 */
+.logo-image[b-vgb7cixtlw] {
+    width: 40px; /* 折叠状态下的尺寸 */
+    height: 40px;
+    display: block;
+    transition: all 0.3s ease; 
+    opacity: 0.5; /* 设置半透明效果 */
+}
+
+/* 展开状态下的Logo - 更大尺寸 */
+.page:not(.collapsed) .sidebar .logo-image[b-vgb7cixtlw] {
+    width: 80px;
+    height: 80px;
+    transform: scale(1.1); /* 稍微放大一点，增强动画效果 */
+}
+
+/* 折叠状态下的Logo */
+.page.collapsed .sidebar .logo-image[b-vgb7cixtlw] {
+    transform: scale(0.9); /* 稍微缩小一点 */
+}
+
+/* 折叠状态下隐藏标题文本 */
+.page.collapsed .sidebar .sidebar-header span[b-vgb7cixtlw] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+.sidebar-header[b-vgb7cixtlw] {
+    margin-top: 1em; 
+    padding: 1rem;
+    font-size: 1.25rem;
+    font-weight: 200;
+    border-bottom: 1px solid #343a40;
+    white-space: nowrap;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.main-nav[b-vgb7cixtlw], .main-nav .nav[b-vgb7cixtlw] {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.nav-item[b-vgb7cixtlw] {
+    width: 100%;
+}
+
+.nav-link[b-vgb7cixtlw] {
+    color: rgba(255, 255, 255, 0.75);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    white-space: nowrap;
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.2s;
+}
+
+    .nav-link:hover[b-vgb7cixtlw] {
+        color: white;
+        background-color: #343a40;
+    }
+
+    .nav-link .fa-fw[b-vgb7cixtlw] {
+        width: 1.25em;
+        text-align: center;
+        flex-shrink: 0;
+    }
+
+#submenu-system .nav-link[b-vgb7cixtlw] {
+    padding-left: 3rem;
+}
+
+.sidebar-footer[b-vgb7cixtlw] {
+    border-top: 1px solid #343a40;
+    padding: 0.5rem 0;
+}
+
+.toggler-button[b-vgb7cixtlw] {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+}
+
+    .toggler-button:hover[b-vgb7cixtlw] {
+        color: white;
+        background-color: #343a40;
+    }
+
+
+/* --- 桌面端折叠样式 --- */
+.page.collapsed .sidebar[b-vgb7cixtlw] {
+    width: 65px;
+}
+
+    .page.collapsed .sidebar .nav-link span[b-vgb7cixtlw],
+    .page.collapsed .sidebar .nav-link[data-bs-toggle="collapse"][b-vgb7cixtlw]::after {
+        display: none;
+    }
+    
+    .page.collapsed .sidebar .sidebar-header span[b-vgb7cixtlw] {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .page.collapsed .sidebar .sidebar-header[b-vgb7cixtlw],
+    .page.collapsed .sidebar .toggler-button[b-vgb7cixtlw],
+    .page.collapsed .sidebar .nav-link[b-vgb7cixtlw] {
+        justify-content: center;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .page.collapsed .sidebar .collapse.show[b-vgb7cixtlw] {
+        display: none;
+    }
+
+
+/* --- 移动端响应式调整 --- */
+@media (max-width: 768px) {
+    .sidebar[b-vgb7cixtlw] {
+        position: absolute;
+        /* 关键修复: 确保在任何情况下都撑满高度 */
+        height: 100vh !important;
+        box-shadow: 0 0 1rem rgba(0,0,0,0.5);
+    }
+
+    .page .sidebar[b-vgb7cixtlw] {
+        width: 65px;
+    }
+
+        .page .sidebar .nav-link span[b-vgb7cixtlw],
+        .page .sidebar .sidebar-header span[b-vgb7cixtlw],
+        .page .sidebar .nav-link[data-bs-toggle="collapse"][b-vgb7cixtlw]::after {
+            display: none;
+        }
+
+        .page .sidebar .sidebar-header[b-vgb7cixtlw],
+        .page .sidebar .toggler-button[b-vgb7cixtlw],
+        .page .sidebar .nav-link[b-vgb7cixtlw] {
+            justify-content: center;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+    .page:not(.collapsed) .sidebar[b-vgb7cixtlw] {
+        width: 250px;
+    }
+
+        .page:not(.collapsed) .sidebar .nav-link span[b-vgb7cixtlw],
+        .page:not(.collapsed) .sidebar .sidebar-header span[b-vgb7cixtlw] {
+            display: inline;
+        }
+
+        .page:not(.collapsed) .sidebar .sidebar-header[b-vgb7cixtlw] {
+            justify-content: center;
+        }
+
+        .page:not(.collapsed) .sidebar .toggler-button[b-vgb7cixtlw],
+        .page:not(.collapsed) .sidebar .nav-link[b-vgb7cixtlw] {
+            justify-content: flex-start;
+            padding: 0.75rem 1.5rem;
+        }
+}

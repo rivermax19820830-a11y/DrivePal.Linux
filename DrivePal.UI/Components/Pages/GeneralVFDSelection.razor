@@ -1,0 +1,332 @@
+﻿@page "/general-vfd-selection"
+@using DrivePal.Core.POCO
+@using DrivePal.Core.Dtos
+@using DrivePal.Core.Services
+@using DrivePal.Core.Enums
+@using DrivePal.Infrastructure.Services
+@using DrivePal.UI.Components.Shared
+@using Microsoft.Extensions.DependencyInjection
+
+@inject IServiceProvider ServiceProvider
+@inject IDeviceService deviceService
+
+
+<div class="container mt-4">
+	<div class="card border mb-4">
+		<div class="card-body p-4">
+			<div class="d-flex align-items-center gap-2 mb-4 mt-2">
+				<i class="fas fa-globe-asia"></i>
+				<h6 class="mb-0 font-weight-bold">变频器选型参数</h6>
+			</div>
+
+			<p class="text-muted mb-4">请填写以下参数，系统将为您匹配合适的变频器型号</p>
+
+			<div class="row g-4 mb-4">
+				<div class="col-md-4">
+					<div class="mb-3">
+						<label class="form-label">电机功率 (kW) <span class="text-danger">*</span></label>
+						<InputNumber @bind-Value="generalMechanism.MotorPower" class="form-control form-control-lg" Placeholder="输入电机功率" />
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="mb-3">
+						<label class="form-label">电机额定电流 (A) <span class="text-danger">*</span></label>
+						<InputNumber @bind-Value="generalMechanism.MotorRatedCurrent" class="form-control form-control-lg" Placeholder="输入电机额定电流" />
+					</div>
+				</div>
+				@*<div class="col-md-4">
+                <div class="mb-3">
+                    <label class="form-label">电机数量</label>
+                    <input type="number" class="form-control form-control-lg" TValue="int" @bind="@generalMechanism.MotorCount" min="1" max="99" step="1" />
+                </div>
+            </div> *@
+
+				<div class="col-md-4">
+					<div class="mb-3">
+						<label class="form-label">电压过载系数 <span class="text-danger">*</span></label>
+						<InputNumber @bind-Value="generalMechanism.OverloadFactor" class="form-control form-control-lg" min="1.2" max="2.5" step="0.1" Placeholder="变频器短时过载能力，一般为1.5~2.0倍额定电流" />
+					</div>
+				</div>
+			</div>
+
+			<div class="row g-4 mb-4">
+
+				<div class="col-md-4">
+					<div class="mb-3">
+						<label class="form-label">电压等级 <span class="text-danger">*</span></label>
+						<select @bind="generalMechanism.VoltageLevel" class="form-control form-control-lg">
+							<option value="@(VoltageLevel.V380)">400V</option>
+							<option value="@(VoltageLevel.V500)">500V</option>
+							<option value="@(VoltageLevel.V690)">690V</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<div class="mb-3">
+						<label class="form-label">散热方式 <span class="text-danger">*</span></label>
+						<select @bind="generalMechanism.HeatDissipation" class="form-control form-control-lg">
+							<option value="@(HeatDissipationType.AirCooled)">风冷</option>
+							<option value="@(HeatDissipationType.WaterCooled)">水冷</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<div class="mb-3">
+						<label class="form-label">产品类型 <span class="text-danger">*</span></label>
+						<select @bind="selectedDriveType" class="form-control form-control-lg">
+							<option value="@(DriveTypeSelection.SingleDrive)">单传</option>
+							<option value="@(DriveTypeSelection.MultiDriveSystem)">多传</option>
+						</select>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="row g-4 mb-4">
+				<div class="col-md-4">
+					<div class="mb-3">
+						<label class="form-label">海拔高度 (m) <span class="text-danger">*</span></label>
+						<InputNumber @bind-Value="generalMechanism.Altitude" class="form-control form-control-lg" min="0" step="100" />
+					</div>
+				</div>
+				@* 【替换 3：变频器放档系数】 *@
+				<div class="col-md-4">
+					<div class="mb-3">
+						<label class="form-label">变频器放档系数 <span class="text-danger">*</span></label>
+						<select @bind="generalMechanism.GearFactor" class="form-control form-control-lg">
+							<option value="0">平档</option>
+							<option value="1">1档</option>
+							<option value="2">2档</option>
+							<option value="3">3档</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="mt-4">
+				<button class="btn btn-primary" @onclick="CalculateAndRecommend">
+					<i class="fas fa-search"></i>
+					查找匹配型号
+				</button>
+				<button class="btn btn-outline-secondary ml-6" @onclick="ResetForm">
+					重置
+				</button>
+			</div>
+		</div>
+	</div>
+	<!-- 匹配结果区域 -->
+	@if (hasSearched)
+	{
+		<div class="card border my-4">
+			@* 改为实线边框 *@
+			<div class="card-body p-4">
+				<div class="d-flex align-items-center gap-2">
+					<i class="fas fa-list"></i>
+					<h6 class="mb-0 font-weight-bold">匹配结果</h6>
+				</div>
+			</div>
+
+			@if (recommendedInverters.Any())
+			{
+				<div class="table-responsive" style="padding: 1rem 2rem 2rem 2rem;">
+					<table class="table table-bordered table-hover mb-0">
+						<thead>
+							<tr>
+								<th>型号</th>
+								<th>适用电机容量(kW)</th>
+								<th>输出电流(A)</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var inverter in recommendedInverters)
+							{
+								<tr>
+									<td>@inverter.Variant</td>
+									<td>@inverter.Power</td>
+									<td>@inverter.RatedCurrent</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			}
+			else
+			{
+
+				<div class="m-5 p-2">
+					<p class="d-flex align-items-center">
+						<i class="fa-solid fa-exclamation-circle text-warning me-2"></i> 
+						<span class="mb-0 text-muted">
+							未找到匹配的变频器型号，请调整参数后重试
+						</span>
+					</p>
+				</div>
+
+			}
+		</div>
+	}
+
+	@* @if (hasSearched)
+	{
+		<div class="bg-white p-5 rounded shadow-sm my-4">
+			<h4 class="mb-4 font-weight-bold">计算过程解析</h4>
+
+			@if (generalMechanism.CalculationHistory.Any())
+			{
+				<div class="table-responsive">
+					<table class="table table-bordered table-sm">
+						<thead>
+							<tr>
+								<th>步骤</th>
+								<th>描述</th>
+								<th>中间结果 (A)</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var step in generalMechanism.CalculationHistory)
+							{
+								<tr>
+									<td>@step.StepTitle</td>
+									<td>@step.Description</td>
+									<td><strong>@step.OutputValue.ToString("F2") A</strong></td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			}
+		</div>
+	} *@
+
+
+	<div class="card border mb-4">
+		<div class="card-body p-4">
+			<div class="d-flex align-items-center gap-2 mb-4 mt-2">
+				<i class="fas fa-info-circle"></i>
+				<h6 class="mb-0 font-weight-bold">参数说明</h6> 
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					@* 				<div class="mb-3">
+					<p class="font-weight-bold text-primary">电压等级:</p>
+					<p>变频器的工作电压，常见为400V、500V、690V</p>
+				</div>*@
+				<div class="mb-3">
+					<p class="font-weight-bold text-primary">安全容量:</p>
+						<p>
+							1) 变频器的额定电流大于电机的额定电流。<br />
+							2) 变频器 1.5 倍额定电流需大于电机的启动电流。<br />
+						</p>
+				</div> 
+					<div class="mb-3">
+						<p class="font-weight-bold text-primary">环境温度:</p>
+						<p>
+							单环境温度超过40℃，需要降额使用。<br />
+							环境温度超 50℃时需向厂家咨询指导。<br />
+						</p>
+					</div>
+				</div>
+				<div class="col-md-6">
+					@* 				<div class="mb-3">
+					<p class="font-weight-bold text-primary">放档系数:</p>
+					<p>平档(1.0): 标准配置</p>
+					<p>1档(1.2): 增加20%容量余量</p>
+					<p>2档(1.4): 增加40%容量余量</p>
+					<p>3档(1.6): 增加60%容量余量</p>
+				</div>
+				<div class="mb-3">
+					<p class="font-weight-bold text-primary">过载系数:</p>
+					<p>变频器短时过载能力，一般为1.5~2.0倍额定电流</p>
+				</div> *@
+					<div class="mb-3">
+						<p class="font-weight-bold text-primary">海拔高度:</p>
+						<p>设备安装环境的海拔高度，超过3000米时需向厂家咨询指导。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@code {
+
+
+
+	private GeneralVFDMechanism generalMechanism = InitialMechanism();
+
+	private DriveTypeSelection? selectedDriveType = DriveTypeSelection.SingleDrive;
+
+	private List<RecommendedInverterDto> recommendedInverters = new List<RecommendedInverterDto>();
+	private bool hasSearched = false;
+
+
+	private async Task CalculateAndRecommend()
+	{
+		hasSearched = false;
+		recommendedInverters.Clear();
+		StateHasChanged();
+
+
+		// 验证必填参数
+		if (generalMechanism.MotorPower <= 0 || generalMechanism.MotorRatedCurrent <= 0 ||
+		generalMechanism.OverloadFactor <= 0 || generalMechanism.VoltageLevel == null ||
+		generalMechanism.HeatDissipation == null || selectedDriveType == null)
+		{
+			// 参数不完整，不执行搜索
+			return;
+		}
+
+
+		// 如果一个变频器驱动多台电动机, 将DriveMode改为对应的模式
+		if (generalMechanism.ProductType == DriveTypeSelection.SingleDrive && generalMechanism.MotorCount > 1)
+		{
+			generalMechanism.DriveMode = DriveMode.OneInverterMultipleMotors;
+		}
+
+		generalMechanism.PerformCalculation(GetStrategy());
+		var criteria = generalMechanism.ToDeviceSearchCriteria() as MotorFilterCriteria;
+		criteria!.ProductType = selectedDriveType;
+
+		recommendedInverters = await deviceService.QueryGeneralPurposeDevices(criteria);
+
+
+		hasSearched = true;
+		StateHasChanged();
+	}
+
+
+	private void ResetForm()
+	{
+		generalMechanism = InitialMechanism();
+
+		selectedDriveType = DriveTypeSelection.SingleDrive;
+		recommendedInverters = new List<RecommendedInverterDto>();
+		hasSearched = false;
+	}
+
+	static GeneralVFDMechanism InitialMechanism()
+	{
+		return new GeneralVFDMechanism
+		{
+			MotorCount = 1,
+			MotorPower = 250,
+			MotorRatedCurrent = 200,
+			OverloadFactor = 1.5m,
+			VoltageLevel = VoltageLevel.V380,
+			Altitude = 1000,
+			HeatDissipation = HeatDissipationType.AirCooled,
+			GearFactor = 0m,
+			Motor = new MotorParameters { RatedVoltage = 400, RatedFrequency = 50, OperatingFrequency = 50, PowerFactor = 0.85M },
+			CalculationHistory = new List<SelectionProcessDto>()
+		};
+
+	}
+
+
+	private IMechanismCalculationStrategy GetStrategy()
+	{
+		return ServiceProvider.GetRequiredKeyedService<IMechanismCalculationStrategy>("common");
+	}
+}

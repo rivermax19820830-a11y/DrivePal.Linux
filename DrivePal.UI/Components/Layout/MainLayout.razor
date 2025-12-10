@@ -1,0 +1,47 @@
+﻿@inherits LayoutComponentBase
+@inject IJSRuntime JSRuntime
+@implements IAsyncDisposable
+
+<div class="page @NavCssClass">
+    <NavMenu IsCollapsed="isSideNavCollapsed" OnToggle="ToggleSideNav" />
+
+    <main class="content">
+        <div class="nav-backdrop @(isSideNavCollapsed ? "" : "show")" @onclick="ToggleSideNav"></div>
+        <article class="content-body">
+            @Body
+        </article>
+
+
+
+        <!-- 添加额外的换行以确保页面底部有足够空间 -->
+        <br />
+    </main> 
+</div>
+
+@code {
+    private bool isSideNavCollapsed = true;
+
+    private const int MobileBreakpoint = 768;
+
+    private string? NavCssClass => isSideNavCollapsed ? "collapsed" : null;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+        }
+    }
+
+    private void ToggleSideNav()
+    {
+        isSideNavCollapsed = !isSideNavCollapsed;
+    }
+
+
+
+    // 销毁引用，防止内存泄漏
+    public async ValueTask DisposeAsync()
+    {
+        
+    }
+} 

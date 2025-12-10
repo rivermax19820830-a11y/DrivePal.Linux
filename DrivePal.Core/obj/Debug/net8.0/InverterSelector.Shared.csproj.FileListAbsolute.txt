@@ -1,0 +1,12 @@
+E:\Works\InverterSelector\InverterSelector.Shared\bin\Debug\net8.0\InverterSelector.Shared.deps.json
+E:\Works\InverterSelector\InverterSelector.Shared\bin\Debug\net8.0\InverterSelector.Shared.dll
+E:\Works\InverterSelector\InverterSelector.Shared\bin\Debug\net8.0\InverterSelector.Shared.pdb
+E:\Works\InverterSelector\InverterSelector.Shared\obj\Debug\net8.0\InverterSelector.Shared.csproj.AssemblyReference.cache
+E:\Works\InverterSelector\InverterSelector.Shared\obj\Debug\net8.0\InverterSelector.Shared.GeneratedMSBuildEditorConfig.editorconfig
+E:\Works\InverterSelector\InverterSelector.Shared\obj\Debug\net8.0\InverterSelector.Shared.AssemblyInfoInputs.cache
+E:\Works\InverterSelector\InverterSelector.Shared\obj\Debug\net8.0\InverterSelector.Shared.AssemblyInfo.cs
+E:\Works\InverterSelector\InverterSelector.Shared\obj\Debug\net8.0\InverterSelector.Shared.csproj.CoreCompileInputs.cache
+E:\Works\InverterSelector\InverterSelector.Shared\obj\Debug\net8.0\InverterSelector.Shared.dll
+E:\Works\InverterSelector\InverterSelector.Shared\obj\Debug\net8.0\refint\InverterSelector.Shared.dll
+E:\Works\InverterSelector\InverterSelector.Shared\obj\Debug\net8.0\InverterSelector.Shared.pdb
+E:\Works\InverterSelector\InverterSelector.Shared\obj\Debug\net8.0\ref\InverterSelector.Shared.dll

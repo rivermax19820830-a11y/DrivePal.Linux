@@ -1,0 +1,85 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+/* 使用::deep伪选择器确保样式应用到所有子组件和@Body内容 */
+::deep * {
+    user-select: none; /* 禁用文本选择 */
+    -webkit-user-select: none;
+    -moz-user-drag: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -o-user-drag: none;
+    draggable: false;
+    -webkit-touch-callout: none;
+    pointer-events: auto;
+}
+
+/* 使用::deep针对所有li元素的额外限制 */
+::deep li {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    draggable: false;
+}
+
+/* 允许输入框内的文本选择 */
+input, textarea, select {
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+}
+
+body, div.page {
+    background: #F8FAFC!important;
+}
+
+.page {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    position: relative; /* 为遮罩层提供定位上下文 */
+}
+
+.content-body {
+    /*padding: 1.5rem;*/ 
+    flex-grow: 1; 
+}
+
+/* --- 遮罩层样式 --- */
+.nav-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1040; /* z-index需要比侧边栏低 */
+    opacity: 0;
+    pointer-events: none; /* 默认不可点击 */
+    transition: opacity 0.3s ease-in-out;
+}
+
+    /* 当遮罩层有 show 类时，使其可见并可点击 */
+    .nav-backdrop.show {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+/* 在宽屏上，我们不需要遮罩层 */
+@media (min-width: 768.01px) {
+    .nav-backdrop {
+        display: none;
+    }
+}

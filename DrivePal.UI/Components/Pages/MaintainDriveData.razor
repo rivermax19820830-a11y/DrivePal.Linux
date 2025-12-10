@@ -1,0 +1,674 @@
+﻿@page "/maintain-drive-data"
+@using DrivePal.Core.Models
+@using DrivePal.Infrastructure
+@using DrivePal.UI.Components.Shared
+@using SqlSugar
+@inject SqlSugarDbContext dbContext
+
+<style>
+	/* 生效的选中行样式 */
+	.table .table-row-selected > td,
+	.table .table-row-selected > th {
+		background-color: #F6F6F8 !important; /* Bootstrap primary blue */
+		color: #000 !important;
+		--bs-table-striped-bg: #F5F5F7;
+		--bs-table-accent-bg: #F5F5F7;
+	}
+
+
+	/* 添加独立滚动样式 */
+	.table-container {
+		max-height: calc(100vh - 250px); /* 增加了筛选框的高度，适当调整 */
+		overflow-y: auto;
+		margin-bottom: 20px;
+	}
+
+		/* 确保表头固定 */
+		.table-container thead {
+			position: sticky;
+			top: 0;
+			background-color: #f8f9fa; /* Bootstrap 表格头部默认背景色 */
+			z-index: 10;
+		}
+</style>
+
+
+
+
+<div class="container-fluid p-3" style="max-width: 1400px;">
+	<div class="row mb-3">
+		<div class="col-md-12">
+			<div class="d-flex justify-content-between align-items-center">
+				<div>
+					<h3><i class="fas fa-database text-secondary  mr-2"></i> 变频器数据维护</h3>
+					<p class="text-muted">管理变频器设备型号和参数配置</p>
+				</div>
+				<button class="btn btn-dark" @onclick="AddNewDevice">
+					<i class="fas fa-plus"></i> 添加设备
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card h-100">
+				<div class="card-body">
+
+					<div class="p-6 mb-4">
+						<h5 class="flex items-center gap-2">
+							<i class="fa-solid fa-list me-2"></i> 变频器主信息
+						</h5>
+					</div>
+
+					<div class="table-responsive" style="max-height: calc(100vh - 250px);">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									@* <th>型号</th> *@
+									<th>型号</th>
+									<th>机型</th>
+									<th>操作</th>
+								</tr>
+								<tr>
+									@* <td><input @bind="modelFilter" class="form-control form-control-sm" placeholder="筛选型号..." /></td> *@
+									<td><input @bind="variantFilter" class="form-control form-control-sm" placeholder="筛选子型号..." /></td>
+									<td><input @bind="typeFilter" class="form-control form-control-sm" placeholder="筛选类型..." /></td>
+									<td></td>
+								</tr>
+							</thead>
+							<tbody>
+								@* 修改循环的源为 FilteredDevices *@
+								@foreach (var device in FilteredDevices)
+								{
+									<tr @onclick="() => SelectDevice(device)"
+										class="@(selectedDevice?.Id == device.Id ? "table-row-selected" : null)">
+										@* <td>@device.Model</td> *@
+										<td>@device.Variant</td>
+										<td>@GetDeviceTypeString(device.DeviceType)</td>
+										<td>
+											<div class="btn-group btn-group-sm" role="group">
+												@* <button class="btn btn-light" @onclick="() => SelectDevice(device)">详情</button> *@
+												<button class="btn btn-light" @onclick="() => EditDevice(device)">
+													<i class="far fa-edit me-2 text-secondary "></i>编辑
+												</button>
+												<button class="btn btn-light" @onclick="() => AskDeleteDevice(device)">
+													<i class="far fa-trash-alt me-2 text-secondary"></i>删除
+												</button>
+											</div>
+										</td>
+									</tr>
+								}
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="card-footer bg-light text-muted text-center">
+					共 @devices.Count 条记录
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="card h-100">
+				<div class="card-body">
+
+
+					<div class="">
+						<h5 class="mb-4">
+							<i class="fa-solid fa-gear me-2"></i>  参数配置
+						</h5>
+					</div>
+
+
+					@if (selectedDevice != null)
+					{
+						<div class="mb-3">
+							<label class="form-label">产品类型</label>
+
+							<input type="text" class="form-control" value="@selectedDevice.Usage" disabled />
+						</div>
+						<div class="mb-3">
+							<label class="form-label">设备型号</label>
+							<input type="text" class="form-control" value="@selectedDevice.Variant" disabled />
+						</div>
+						<div class="row mb-3">
+							<div class="col-md-6">
+								<label class="form-label">机型</label>
+								<input type="text" class="form-control" value="@GetDeviceTypeString(selectedDevice.DeviceType)" disabled />
+							</div>
+							<div class="col-md-6">
+								<label class="form-label">外形尺寸</label>
+								<input type="text" class="form-control" value="@selectedDevice.Dimension" disabled />
+							</div>
+						</div>
+
+						<div class="mt-4 mb-3">
+							<div class="d-flex justify-content-between align-items-center">
+								<h5>
+									<i class="fa-solid fa-list  mr-2"></i> 参数列表
+								</h5>
+								<button type="button" class="btn btn-sm btn-outline-secondary" @onclick="AddNewParameter">
+									<i class="fas fa-plus"></i> 添加参数
+								</button>
+							</div>
+						</div>
+
+						@if (parameters.Count > 0)
+						{
+							<div class="table-responsive" style="max-height: 300px;">
+								<table class="table table-sm table-hover">
+									<thead>
+										<tr>
+											<th>参数名</th>
+											<th>参数值</th>
+											<th>单位</th>
+											<th>操作</th>
+										</tr>
+									</thead>
+									<tbody>
+										@foreach (var param in parameters)
+										{
+											<tr>
+												<td>@param.ParameterName</td>
+												<td>@param.ParameterValue</td>
+												<td>@param.Unit</td>
+												<td>
+													<div class="btn-group btn-group-sm" role="group">
+														<button class="btn btn-light p-1" @onclick="() => EditParameter(param)">
+															<i class="far fa-edit me-2 text-secondary "></i>编辑
+														</button>
+														<button class="btn btn-light p-1" @onclick="() => AskDeleteParameter(param)">
+															<i class="far fa-trash-alt me-2 text-secondary"></i>删除
+														</button>
+													</div>
+												</td>
+											</tr>
+										}
+									</tbody>
+								</table>
+
+								@* <table class="table table-striped">
+										<thead>
+											<tr>
+												<th>参数名</th>
+												<th>参数值</th>
+												<th>单位</th>
+												<th>操作</th>
+											</tr>
+										</thead>
+										<tbody>
+											@foreach (var param in parameters)
+											{
+												<tr style="cursor: pointer;"
+													@onmouseover="@(() => SetHoveredParameter(param))"
+													@onmouseout="@(() => SetHoveredParameter(null))"
+													class="@(hoveredParameter?.Id == param.Id ? "table-hover" : "")">
+													<td>@param.ParameterName</td>
+													<td>@param.ParameterValue</td>
+													<td>@param.Unit</td>
+													<td>
+														<div class="btn-group btn-group-sm" role="group">
+															<button class="btn btn-warning" @onclick="() => EditParameter(param)">编辑</button>
+															<button class="btn btn-danger" @onclick="() => AskDeleteParameter(param)">删除</button>
+														</div>
+													</td>
+												</tr>
+											}
+										</tbody>
+									</table> *@
+							</div>
+						}
+						else
+						{
+							<div class="text-center text-muted p-3">
+								暂无参数配置，点击上方按钮添加参数
+							</div>
+						}
+						@* 
+                            <div class="mt-4 d-flex justify-content-end">
+                                <button type="button" class="btn btn-secondary me-2">取消</button>
+                                <button type="button" class="btn btn-primary" @onclick="SaveCurrentConfiguration">保存配置</button>
+                            </div> *@
+
+					}
+					else
+					{
+						<div class="text-center text-muted py-5">
+							<p>请选择一个设备查看参数详情</p>
+						</div>
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@if (showDeviceModal)
+{
+	<div class="modal fade show" style="display: block;" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">@(editingDevice.Id == 0 ? "添加设备" : "编辑设备")</h5>
+					<button type="button" class="btn-close" @onclick="CloseDeviceModal"></button>
+				</div>
+				<div class="modal-body">
+					<div class="mb-3">
+						<label class="form-label">品牌</label>
+						<input @bind="editingDevice.Brand" class="form-control" placeholder="请输入品牌" />
+					</div>
+					<div class="mb-3">
+						<label class="form-label">型号</label>
+						<input @bind="editingDevice.Model" class="form-control" placeholder="请输入型号" />
+					</div>
+					<div class="mb-3">
+						<label class="form-label">子型号</label>
+						<input @bind="editingDevice.Variant" class="form-control" placeholder="请输入子型号" />
+					</div>
+					<div class="mb-3">
+						<label class="form-label">类型</label>
+						<input @bind="editingDevice.DeviceType" class="form-control" placeholder="请输入设备类型" />
+					</div>
+					<div class="mb-3">
+						<label class="form-label">尺寸</label>
+						<input @bind="editingDevice.Dimension" class="form-control" placeholder="请输入尺寸" />
+					</div>
+					<div class="mb-3">
+						<label class="form-label">重量</label>
+						<input type="number" step="0.01" @bind="editingDevice.Weight" class="form-control" placeholder="请输入重量" />
+					</div>
+					<div class="mb-3">
+						<label class="form-label">功率</label>
+						<input @bind="editingDevice.Power" class="form-control" placeholder="请输入功率" />
+					</div>
+					<div class="mb-3">
+						<label class="form-label">设备用途</label>
+						<input @bind="editingDevice.Usage" class="form-control" placeholder="请输入设备用途(变频器, 逆变, 整流...)" />
+					</div>
+					<div class="mb-3">
+						<label class="form-label">电源</label>
+						<input @bind="editingDevice.PowerSupply" class="form-control" placeholder="请输入电源" />
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" @onclick="CloseDeviceModal">取消</button>
+					<button type="button" class="btn btn-primary" @onclick="SaveDevice">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-backdrop fade show"></div>
+}
+
+@if (showParameterModal)
+{
+	<div class="modal fade show" style="display: block;" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">@(editingParameter.Id == 0 ? "添加参数" : "编辑参数")</h5>
+					<button type="button" class="btn-close" @onclick="CloseParameterModal"></button>
+				</div>
+				<div class="modal-body">
+					<div class="mb-3">
+						<label class="form-label">参数名</label>
+						<input @bind="editingParameter.ParameterName" class="form-control" placeholder="请输入参数名" />
+					</div>
+					<div class="mb-3">
+						<label class="form-label">参数值</label>
+						<input @bind="editingParameter.ParameterValue" class="form-control" placeholder="请输入参数值" />
+					</div>
+					<div class="mb-3">
+						<label class="form-label">单位</label>
+						<input @bind="editingParameter.Unit" class="form-control" placeholder="请输入单位" />
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" @onclick="CloseParameterModal">取消</button>
+					<button type="button" class="btn btn-primary" @onclick="SaveParameter">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-backdrop fade show"></div>
+}
+
+@if (showConfirmDeleteDevice && pendingDeleteDevice != null)
+{
+	<div class="modal fade show" style="display: block;" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">确认删除设备</h5>
+					<button type="button" class="btn-close" @onclick="CancelDeleteDevice"></button>
+				</div>
+				<div class="modal-body">
+					<p>确定要删除设备 “@pendingDeleteDevice.Brand @pendingDeleteDevice.Model @pendingDeleteDevice.Variant” 吗？该操作将同时删除其所有参数。</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" @onclick="CancelDeleteDevice">取消</button>
+					<button type="button" class="btn btn-danger" @onclick="ConfirmDeleteDevice">删除</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-backdrop fade show"></div>
+}
+
+@if (showConfirmDeleteParameter && pendingDeleteParameter != null)
+{
+	<div class="modal fade show" style="display: block;" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">确认删除参数</h5>
+					<button type="button" class="btn-close" @onclick="CancelDeleteParameter"></button>
+				</div>
+				<div class="modal-body">
+					<p>确定要删除参数 “@pendingDeleteParameter.ParameterName” 吗？</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" @onclick="CancelDeleteParameter">取消</button>
+					<button type="button" class="btn btn-danger" @onclick="ConfirmDeleteParameter">删除</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-backdrop fade show"></div>
+}
+
+@code {
+	private List<DeviceInfo> devices = new List<DeviceInfo>();
+	private List<DeviceParameterInfo> parameters = new List<DeviceParameterInfo>();
+	private DeviceInfo? selectedDevice;
+	private DeviceParameterInfo newParam = new DeviceParameterInfo();
+	private bool isLoading = true;
+
+	// 设备编辑相关
+	private bool showDeviceModal = false;
+	private DeviceInfo editingDevice = new DeviceInfo();
+
+	// 参数编辑相关
+	private bool showParameterModal = false;
+	private DeviceParameterInfo editingParameter = new DeviceParameterInfo();
+	private DeviceParameterInfo? hoveredParameter;
+
+	// 删除确认相关
+	private bool showConfirmDeleteDevice = false;
+	private DeviceInfo? pendingDeleteDevice;
+	private bool showConfirmDeleteParameter = false;
+	private DeviceParameterInfo? pendingDeleteParameter;
+
+	private string _brandFilter = "";
+	private string _modelFilter = "";
+	private string _variantFilter = "";
+	private string _typeFilter = "";
+
+	// Add properties with custom setters
+	private string brandFilter
+	{
+		get => _brandFilter;
+		set
+		{
+			_brandFilter = value;
+			ClearSelectedDevice();
+		}
+	}
+
+	private string modelFilter
+	{
+		get => _modelFilter;
+		set
+		{
+			_modelFilter = value;
+			ClearSelectedDevice();
+		}
+	}
+
+	private string variantFilter
+	{
+		get => _variantFilter;
+		set
+		{
+			_variantFilter = value;
+			ClearSelectedDevice();
+		}
+	}
+
+	private string typeFilter
+	{
+		get => _typeFilter;
+		set
+		{
+			_typeFilter = value;
+			ClearSelectedDevice();
+		}
+	}
+
+	private void ClearSelectedDevice()
+	{
+		selectedDevice = null;
+		parameters = new List<DeviceParameterInfo>();
+	}
+
+
+	private IEnumerable<DeviceInfo> FilteredDevices => devices
+		.Where(d => string.IsNullOrWhiteSpace(_brandFilter) ||
+				   (d.Brand != null && d.Brand.Contains(_brandFilter, StringComparison.OrdinalIgnoreCase)))
+		.Where(d => string.IsNullOrWhiteSpace(_modelFilter) ||
+				   (d.Model != null && d.Model.Contains(_modelFilter, StringComparison.OrdinalIgnoreCase)))
+		.Where(d => string.IsNullOrWhiteSpace(_variantFilter) ||
+				   (d.Variant != null && d.Variant.Contains(_variantFilter, StringComparison.OrdinalIgnoreCase)))
+		.Where(d => string.IsNullOrWhiteSpace(_typeFilter) ||
+				   GetDeviceTypeString(d.DeviceType).Contains(_typeFilter, StringComparison.OrdinalIgnoreCase));
+
+	protected override async Task OnInitializedAsync()
+	{
+		await LoadDevices();
+		isLoading = false;
+	}
+
+	private async Task LoadDevices()
+	{
+		devices = await dbContext.Db.Queryable<DeviceInfo>().ToListAsync();
+	}
+
+	private async Task SelectDevice(DeviceInfo device)
+	{
+		selectedDevice = device;
+		await LoadParameters(device.Id);
+	}
+
+	private async Task LoadParameters(int deviceId)
+	{
+		parameters = await dbContext.Db.Queryable<DeviceParameterInfo>()
+			.Where(p => p.DeviceId == deviceId)
+			.ToListAsync();
+	}
+
+	// 设备相关方法
+	private void AddNewDevice()
+	{
+		editingDevice = new DeviceInfo();
+		showDeviceModal = true;
+	}
+
+	private void EditDevice(DeviceInfo device)
+	{
+		editingDevice = new DeviceInfo
+		{
+			Id = device.Id,
+			Brand = device.Brand,
+			Model = device.Model,
+			Variant = device.Variant,
+			DeviceType = device.DeviceType,
+			Dimension = device.Dimension,
+			Weight = device.Weight,
+			Power = device.Power,
+			Usage = device.Usage,
+			PowerSupply = device.PowerSupply
+		};
+		showDeviceModal = true;
+	}
+
+	private async Task SaveDevice()
+	{
+		if (string.IsNullOrWhiteSpace(editingDevice.Brand) ||
+			string.IsNullOrWhiteSpace(editingDevice.Model) ||
+			string.IsNullOrWhiteSpace(editingDevice.Variant))
+		{
+			return; // 简单验证
+		}
+
+		if (editingDevice.Id == 0)
+		{
+			// 新增设备
+			await dbContext.Db.Insertable(editingDevice).ExecuteCommandAsync();
+		}
+		else
+		{
+			// 更新设备
+			await dbContext.Db.Updateable(editingDevice).ExecuteCommandAsync();
+		}
+
+		await LoadDevices();
+		CloseDeviceModal();
+	}
+
+	private void CloseDeviceModal()
+	{
+		showDeviceModal = false;
+		editingDevice = new DeviceInfo();
+	}
+
+	private async Task DeleteDevice(DeviceInfo device)
+	{
+		// 先删除相关参数
+		await dbContext.Db.Deleteable<DeviceParameterInfo>()
+			.Where(p => p.DeviceId == device.Id)
+			.ExecuteCommandAsync();
+		// 删除设备
+		await dbContext.Db.Deleteable(device).ExecuteCommandAsync();
+
+		await LoadDevices();
+		// 如果删除的是当前选中的设备，清空选择
+		if (selectedDevice?.Id == device.Id)
+		{
+			selectedDevice = null;
+			parameters = new List<DeviceParameterInfo>();
+		}
+	}
+
+	private void AskDeleteDevice(DeviceInfo device)
+	{
+		pendingDeleteDevice = device;
+		showConfirmDeleteDevice = true;
+	}
+
+	private void CancelDeleteDevice()
+	{
+		showConfirmDeleteDevice = false;
+		pendingDeleteDevice = null;
+	}
+
+	private async Task ConfirmDeleteDevice()
+	{
+		if (pendingDeleteDevice == null) return;
+		await DeleteDevice(pendingDeleteDevice);
+		CancelDeleteDevice();
+	}
+
+	// 参数相关方法
+	private void AddNewParameter()
+	{
+		if (selectedDevice == null) return;
+		editingParameter = new DeviceParameterInfo
+		{
+			DeviceId = selectedDevice.Id
+		};
+		showParameterModal = true;
+	}
+
+	private void EditParameter(DeviceParameterInfo parameter)
+	{
+		editingParameter = new DeviceParameterInfo
+		{
+			Id = parameter.Id,
+			DeviceId = parameter.DeviceId,
+			ParameterName = parameter.ParameterName,
+			ParameterValue = parameter.ParameterValue,
+			Unit = parameter.Unit
+		};
+		showParameterModal = true;
+	}
+
+	private async Task SaveParameter()
+	{
+		if (string.IsNullOrWhiteSpace(editingParameter.ParameterName))
+		{
+			return; // 简单验证
+		}
+
+		if (editingParameter.Id == 0)
+		{
+			// 新增参数
+			await dbContext.Db.Insertable(editingParameter).ExecuteCommandAsync();
+		}
+		else
+		{
+			// 更新参数
+			await dbContext.Db.Updateable(editingParameter).ExecuteCommandAsync();
+		}
+
+		if (selectedDevice != null)
+		{
+			await LoadParameters(selectedDevice.Id);
+		}
+		CloseParameterModal();
+	}
+
+	private void CloseParameterModal()
+	{
+		showParameterModal = false;
+		editingParameter = new DeviceParameterInfo();
+	}
+
+	private async Task DeleteParameter(DeviceParameterInfo param)
+	{
+		await dbContext.Db.Deleteable(param).ExecuteCommandAsync();
+		if (selectedDevice != null)
+		{
+			await LoadParameters(selectedDevice.Id);
+		}
+	}
+
+	private void AskDeleteParameter(DeviceParameterInfo param)
+	{
+		pendingDeleteParameter = param;
+		showConfirmDeleteParameter = true;
+	}
+
+	private void CancelDeleteParameter()
+	{
+		showConfirmDeleteParameter = false;
+		pendingDeleteParameter = null;
+	}
+
+	private async Task ConfirmDeleteParameter()
+	{
+		if (pendingDeleteParameter == null) return;
+		await DeleteParameter(pendingDeleteParameter);
+		CancelDeleteParameter();
+	}
+
+	private void SetHoveredParameter(DeviceParameterInfo? param)
+	{
+		hoveredParameter = param;
+	}
+
+	private string GetDeviceTypeString(string type)
+	{
+		return string.IsNullOrWhiteSpace(type) ? "未设置" : type;
+	}
+}

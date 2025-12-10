@@ -1,0 +1,6 @@
+wwwroot\css\app.css
+wwwroot\css\bootstrap\bootstrap.css
+wwwroot\css\bootstrap\bootstrap.min.css
+wwwroot\css\font-awesome\font-awesome.min.css
+wwwroot\css\tailwind.css
+wwwroot\index.html

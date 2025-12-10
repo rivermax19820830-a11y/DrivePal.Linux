@@ -1,0 +1,13 @@
+@using DrivePal.UI.Components.Layout
+<Router AppAssembly="@typeof(DrivePal.UI.Components.Pages.Home).Assembly">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+    </Found>
+    <NotFound>
+        <PageTitle>找不到页面</PageTitle>
+        <LayoutView Layout="@typeof(MainLayout)">
+            <p role="alert">抱歉，您请求的地址没有内容。</p>
+        </LayoutView>
+    </NotFound>
+</Router>
